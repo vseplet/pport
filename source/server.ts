@@ -63,7 +63,7 @@ export const home = async () => `
 
         Windows:
 
-        $ irm ${domain} | iex
+        $ irm ${domain}
 
       <code style="color: rgb(0 251 255)">
       Last messages:
