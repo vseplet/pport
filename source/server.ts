@@ -72,8 +72,8 @@ export const home = async () => `
 
         $ <span class="sh">irm ${domain}</span>
 
-      <code class="header">
-      Last messages:
+      <span class="header">Last messages:</span>
+      <code>
 
 ${messages.map(msg => {
   return `        ${msg.username}: ${msg.text}\n`
