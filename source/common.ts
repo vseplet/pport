@@ -20,7 +20,7 @@ export const introText = `
        📜 Text-based Messenger for the Command Line
   │                                                            │
   │    Created by Vsevolod Pletnev                             │
-  │    https://x.com/vseplet                                   │
+  │    https://linkedin.com/in/sevapp                          │
   │                                                            │
   │    Source Code:                                            │
   │    https://github.com/vseplet/PPORT                        │
@@ -87,9 +87,10 @@ export const home = async () => `
 </html>
 `;
 
-export const installCommand = `deno install -g -f -r --allow-net=${
-  baseURL.split("//")[1]
-} ${baseURL}/client.ts -n pport`;
+export const installCommand =
+  `deno install -g -f -r --unstable-kv --allow-net=${
+    baseURL.split("//")[1]
+  } ${baseURL}/client.ts -n pport`;
 
 export const shScript = `
 if ! command -v deno &> /dev/null
