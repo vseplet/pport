@@ -1,5 +1,5 @@
 // Constants
-export const kv = await Deno.openKv("./test");
+export const kv = await Deno.openKv();
 
 export const baseURL = Deno.permissions.querySync &&
     Deno.permissions.querySync({ name: "env" }).state === "granted"
