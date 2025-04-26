@@ -15,20 +15,16 @@ export const introText = `
                   |  __/|  __/| |_| |  _ < | |
                   |_|   |_|    \\___/|_| \\_\\|_|
 
-  ┌────────────────────────────────────────────────────────────┐
-  │                                                            │
-       📜 Text-based Messenger for the Command Line
-  │                                                            │
-  │    Created by Vsevolod Pletnev                             │
-  │    https://linkedin.com/in/sevapp                          │
-  │                                                            │
-  │    Source Code:                                            │
-  │    https://github.com/vseplet/PPORT                        │
-  │                                                            │
-       Specially crafted for Hacker News ❤️
-  |    https://news.ycombinator.com/item?id=43805189           |
-  │                                                            │
-  └────────────────────────────────────────────────────────────┘
+      📜 Text-based Messenger for the Command Line
+
+      Created by Vsevolod Pletnev
+      https://linkedin.com/in/sevapp
+
+      Source Code:
+      https://github.com/vseplet/PPORT
+
+      Specially crafted for Hacker News ❤️
+      https://news.ycombinator.com/item?id=43805189
 `;
 
 // deno-fmt-ignore
@@ -40,6 +36,13 @@ export const home = async () => `
       * {
         background:rgb(0, 68, 74);
         color: white;
+        font-family: monospace;
+      }
+
+      pre {
+      font-size: 14px;
+        line-height: 1.4;
+        white-space: pre;
       }
     </style>
   </head>
