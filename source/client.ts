@@ -54,20 +54,22 @@ const draw = async () => {
 };
 
 const updateMessageList = async () => {
-  const body: { messages: Array<Message> } = await (await fetch(
-    `${baseURL}/messages`,
-    {
-      method: "POST",
-    },
-  )).json();
+  try {
+    const body: { messages: Array<Message> } = await (await fetch(
+      `${baseURL}/messages`,
+      {
+        method: "POST",
+      },
+    )).json();
 
-  const messagesToAdd = body.messages.filter((message) => {
-    if (message.uuid in indexes) return false;
-    indexes[message.uuid] = listOfMessages.length - 1;
-    return true;
-  });
+    const messagesToAdd = body.messages.filter((message) => {
+      if (message.uuid in indexes) return false;
+      indexes[message.uuid] = listOfMessages.length - 1;
+      return true;
+    });
 
-  listOfMessages.unshift(...messagesToAdd);
+    listOfMessages.unshift(...messagesToAdd);
+  } catch (e) {}
 };
 
 const input = async () => {

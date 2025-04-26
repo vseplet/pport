@@ -4,13 +4,13 @@
 
 [Join the discussion on Hacker News!](https://news.ycombinator.com/item?id=43805189)
 
-> ⚠️ To start using PPORT, simply visit [pport.top](https://pport.top) and follow
-> the instructions.
+> ⚠️ To start using PPORT, simply visit [pport.top](https://pport.top) and
+> follow the instructions.
 
 ## Why?
 
-**PPORT** is a small experimental project where I explore the simplest and fastest
-way to deliver software (specifically CLI utilities) over plain HTTP.
+**PPORT** is a small experimental project where I explore the simplest and
+fastest way to deliver software (specifically CLI utilities) over plain HTTP.
 
 To test this method, I built a lightweight text-based chat application that runs
 directly in the terminal.
