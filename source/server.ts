@@ -55,6 +55,12 @@ export const home = async () => `
 
         $ pport
 
+      View installation script
+
+        Unix-like:
+
+        $ curl -sL ${domain}
+
       <code style="color: rgb(0 251 255)">
       Last messages:
 
