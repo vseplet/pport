@@ -26,7 +26,7 @@ export const introText = `
   │    https://github.com/vseplet/PPORT                        │
   │                                                            │
        Specially crafted for Hacker News ❤️
-
+  |    https://news.ycombinator.com/item?id=43805189           |
   │                                                            │
   └────────────────────────────────────────────────────────────┘
 `;
