@@ -1,8 +1,8 @@
 // Constants
-export const baseURL =
-  Deno.permissions.querySync({ name: "env" }).state === "granted"
-    ? Deno.env.get(`BASE_URL`) || "https://localhost:8000"
-    : `https://pport.top`;
+export const baseURL = Deno.permissions.querySync &&
+    Deno.permissions.querySync({ name: "env" }).state === "granted"
+  ? Deno.env.get(`BASE_URL`) || "https://localhost:8000"
+  : `https://pport.top`;
 
 export const introText = `
   ____  ____   ___  ____ _____

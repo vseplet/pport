@@ -1,0 +1,8 @@
+.vscode
+.DS_Store
+TAG-NAME.txt
+.drafts
+.zed
+test
+test-shm
+test-wal
