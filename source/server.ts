@@ -61,6 +61,10 @@ export const home = async () => `
 
         $ curl -sL ${domain}
 
+        Windows:
+
+        $ irm ${domain} | iex
+
       <code style="color: rgb(0 251 255)">
       Last messages:
 
