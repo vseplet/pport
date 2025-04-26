@@ -1,8 +1,27 @@
-import { home, Message, psScript, shScript } from "./common.ts";
+import { home, kv, Message, psScript, shScript } from "./common.ts";
 import { stripAnsiAndControlChars } from "./tui.ts";
 
 const messages: Array<Message> = [];
 const channel = new BroadcastChannel("all_messages");
+
+const updateInstallsCount = async () => {
+  try {
+    if ((await kv.get<number>(["installs"])).value === null) {
+      await kv.set(["installs"], new Deno.KvU64(1n));
+      return;
+    }
+
+    await kv.atomic()
+      .mutate({
+        type: "sum",
+        key: ["installs"],
+        value: new Deno.KvU64(1n),
+      })
+      .commit();
+  } catch (e) {
+    console.log(e);
+  }
+};
 
 const requestHandler = async (req: Request) => {
   const userAgent = req.headers.get("User-Agent");
@@ -25,15 +44,17 @@ const requestHandler = async (req: Request) => {
     );
   }
   if (userAgent?.includes("curl")) {
+    await updateInstallsCount();
     return new Response(shScript);
   } else if (userAgent?.includes("PowerShell")) {
+    await updateInstallsCount();
     return new Response(psScript);
   } else if (userAgent?.includes("Deno") && method == "GET") {
     return new Response(await Deno.readFile(`./source${path}`));
   } else if (method == "GET" && path == "/") {
-    return new Response(home, {
+    return new Response(await home(), {
       headers: {
-        "Context-Type": "text/html",
+        "Content-Type": "text/html; charset=utf-8",
       },
     });
   } else {

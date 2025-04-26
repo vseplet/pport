@@ -2,7 +2,7 @@
   "lock": false,
   "version": "0.1.0",
   "tasks": {
-    "client": "deno -A --env-file ./source/client.ts",
-    "dev": "deno --unstable-broadcast-channel -A --env-file --watch ./source/server.ts"
+    "client": "deno -A --env-file  --unstable-kv ./source/client.ts",
+    "dev": "deno --unstable-broadcast-channel --unstable-kv -A --env-file --watch ./source/server.ts"
   }
 }

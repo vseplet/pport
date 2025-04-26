@@ -1,29 +1,90 @@
 // Constants
+export const kv = await Deno.openKv("./test");
+
 export const baseURL = Deno.permissions.querySync &&
     Deno.permissions.querySync({ name: "env" }).state === "granted"
   ? Deno.env.get(`BASE_URL`) || "https://localhost:8000"
   : `https://pport.top`;
 
-export const introText = `
-  ____  ____   ___  ____ _____
-  |  _ \\|  _ \\ / _ \\|  _ \\_   _|
-  | |_) | |_) | | | | |_) || |
-  |  __/|  __/| |_| |  _ < | |
-  |_|   |_|    \\___/|_| \\_\\|_|
+export const domain = baseURL.split("//")[1];
 
-  Text-based messenger for the command line
-  Created by @vseplet (https://github.com/vseplet/PPORT)
+export const introText = `
+                   ____  ____   ___  ____ _____
+                  |  _ \\|  _ \\ / _ \\|  _ \\_   _|
+                  | |_) | |_) | | | | |_) || |
+                  |  __/|  __/| |_| |  _ < | |
+                  |_|   |_|    \\___/|_| \\_\\|_|
+
+  ┌────────────────────────────────────────────────────────────┐
+  │                                                            │
+       📜 Text-based Messenger for the Command Line
+  │                                                            │
+  │    Created by Vsevolod Pletnev                             │
+  │    https://x.com/vseplet                                   │
+  │                                                            │
+  │    Source Code:                                            │
+  │    https://github.com/vseplet/PPORT                        │
+  │                                                            │
+       Specially crafted for Hacker News ❤️
+  │                                                            │
+  └────────────────────────────────────────────────────────────┘
 `;
 
-export const home = `
-${introText}
+// deno-fmt-ignore
+export const home = async () => `
+<html>
+  <head>
+    <title>PPORT</title>
+    <style>
+      * {
+        background:rgb(0, 68, 74);
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <pre>
 
-  Install/Update
-    unix-like: curl -fsSL pport.top | sh
-    windows: irm pport.top | iex
+      ${
+        introText.replace(
+          /https?:\/\/[^\s]+/g,
+          (url) => `<a href="${url}">${url}</a>`,
+        )
+      }                      Total installs: ${(await kv.get(["installs"])).value}
 
-  And run
-    pport
+
+
+      Install / Update
+
+        Unix-like:
+
+        $ curl -fsSL ${domain} | sh
+
+        Windows:
+
+        $ irm ${domain} | iex
+
+      Run
+
+        $ pport
+    </pre>
+
+    <script type="text/javascript" >
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(101415234, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+      });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/101415234" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  </body>
+</html>
 `;
 
 export const installCommand = `deno install -g -f -r --allow-net=${

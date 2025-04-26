@@ -6,3 +6,4 @@ TAG-NAME.txt
 test
 test-shm
 test-wal
+.env
