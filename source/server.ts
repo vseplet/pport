@@ -24,53 +24,60 @@ export const home = async () => `
       }
 
       pre {
-      font-size: 14px;
+        font-size: 14px;
         line-height: 1.4;
         white-space: pre;
+      }
+
+      .header {
+        color: rgb(0 251 255)
+      }
+
+      .sh {
+        color: #00ff54
       }
     </style>
   </head>
   <body>
     <pre>
-
-      ${
+      <span class="header">${
         introText.replace(
           /https?:\/\/[^\s]+/g,
           (url) => `<a href="${url}">${url}</a>`,
         )
-      }
+      }</span>
                       <span style="color: orange">Total installs: ${(await kv.get(["installs"])).value}</span>
 
-      Install / Update
+      <span class="header">Install / Update</span>
 
         Unix-like:
 
-        $ curl -fsSL ${domain} | sh
+        $ <span class="sh">curl -fsSL ${domain} | sh</span>
 
         Windows:
 
-        $ irm ${domain} | iex
+        $ <span class="sh">irm ${domain} | iex</span>
 
-      Run
+      <span class="header">Run</span>
 
         $ pport
 
-      View installation script
+      <span class="header">View installation script</span>
 
         Unix-like:
 
-        $ curl -sL ${domain}
+        $ <span class="sh">curl -sL ${domain}</span>
 
         Windows:
 
-        $ irm ${domain}
+        $ <span class="sh">irm ${domain}</span>
 
-      <code style="color: rgb(0 251 255)">
+      <code class="header">
       Last messages:
 
 ${messages.map(msg => {
   return `        ${msg.username}: ${msg.text}\n`
-}).join('')}
+}).join('') || '        ...'}
       </code>
     </pre>
 
