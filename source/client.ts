@@ -126,7 +126,7 @@ const main = async () => {
   enable();
   await hideCursor();
 
-  setInterval(updateMessageList, 1000);
+  setInterval(updateMessageList, 2000);
   setInterval(draw, 50);
   await input();
 

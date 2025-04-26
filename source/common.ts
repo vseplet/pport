@@ -26,6 +26,7 @@ export const introText = `
   │    https://github.com/vseplet/PPORT                        │
   │                                                            │
        Specially crafted for Hacker News ❤️
+
   │                                                            │
   └────────────────────────────────────────────────────────────┘
 `;
@@ -50,7 +51,8 @@ export const home = async () => `
           /https?:\/\/[^\s]+/g,
           (url) => `<a href="${url}">${url}</a>`,
         )
-      }                      Total installs: ${(await kv.get(["installs"])).value}
+      }
+                      <span style="color: orange">Total installs: ${(await kv.get(["installs"])).value}</span>
 
 
 
