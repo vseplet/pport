@@ -1,0 +1,8 @@
+{
+  "lock": false,
+  "version": "0.1.0",
+  "tasks": {
+    "client": "deno -A --env-file ./source/client.ts",
+    "dev": "deno --unstable-broadcast-channel -A --env-file --watch ./source/server.ts"
+  }
+}
