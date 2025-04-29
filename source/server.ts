@@ -50,35 +50,20 @@ export const home = async () => `
 
       <span class="header">Install / Update</span>
 
-        Unix-like:
+        Unix-like: <span class="sh">curl -fsSL ${domain} | sh</span>
+        Windows:   <span class="sh">irm ${domain} | iex</span>
 
-        $ <span class="sh">curl -fsSL ${domain} | sh</span>
-
-        Windows:
-
-        $ <span class="sh">irm ${domain} | iex</span>
-
-      <span class="header">Run</span>
-
-        $ pport
+      <span class="header">Run</span>          <span class="sh">pport</span>
 
       <span class="header">View installation script</span>
 
-        Unix-like:
+        Unix-like: <span class="sh">curl -sL ${domain}</span>
+        Windows:   <span class="sh">irm ${domain}</span>
 
-        $ <span class="sh">curl -sL ${domain}</span>
-
-        Windows:
-
-        $ <span class="sh">irm ${domain}</span>
-
-      <span class="header">Last messages:</span>
-      <code>
-
-${messages.map(msg => {
+      <span class="header">Last messages</span>
+      <code>${messages.map(msg => {
   return `        ${msg.username}: ${msg.text}\n`
-}).join('') || '        ...'}
-      </code>
+}).join('') || '        ...'}</code>
     </pre>
 
     <script type="text/javascript" >
