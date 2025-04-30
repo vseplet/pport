@@ -46,7 +46,7 @@ export const home = async () => `
           (url) => `<a href="${url}">${url}</a>`,
         )
       }</span>
-                      <span style="color: orange">Total installs: ${(await kv.get(["installs"])).value}</span>
+      <span style="color: orange">Total installs: ${(await kv.get(["installs"])).value}</span>
 
       <span class="header">Install / Update</span>
 
